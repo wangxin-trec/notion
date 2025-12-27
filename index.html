@@ -3,32 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay Chou Player</title>
+    <title>青花瓷 - 周杰伦</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <style>
-        /* 简单调整下边距，让 Notion 嵌入更好看 */
-        body { margin: 0; padding: 0; background-color: transparent; }
+        /* 基础样式调整，适配 Notion 嵌入 */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: transparent; /* 透明背景，融入Notion */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        /* 调整播放器宽度 */
         #player { width: 100%; }
+        
+        /* 稍微增加歌词区域的高度，让滚动更好看 */
+        .aplayer-lrc {
+            height: 60px !important; /* 你可以调整这个数值来改变歌词显示高度 */
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    
-    <div id="player">
-        <meting-js
-            server="netease"
-            type="song"
-            id="185956"
-            fixed="false"
-            autoplay="false"
-            order="list"
-            loop="all"
-            theme="#b7daff"
-            list-folded="true"
-            lrc-type="1">
-        </meting-js>
-    </div>
+
+    <meting-js
+        server="netease"
+        type="song"
+        id="186016"
+        fixed="false"
+        autoplay="false"
+        loop="all"
+        order="list"
+        preload="auto"
+        list-folded="true"
+        list-max-height="500px"
+        lrc-type="1"
+        theme="#1E90FF">
+    </meting-js>
 
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
 </body>
 </html>
