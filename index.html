@@ -6,42 +6,80 @@
     <title>青花瓷 - 周杰伦</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <style>
-        /* 基础样式调整，适配 Notion 嵌入 */
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: transparent; /* 透明背景，融入Notion */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-        /* 调整播放器宽度 */
-        #player { width: 100%; }
-        
-        /* 稍微增加歌词区域的高度，让滚动更好看 */
-        .aplayer-lrc {
-            height: 60px !important; /* 你可以调整这个数值来改变歌词显示高度 */
-            margin-bottom: 10px;
-        }
+        body { margin: 0; padding: 0; background: transparent; font-family: sans-serif; }
+        #player { width: 100%; margin: 0; }
+        /* 歌词区域高度优化 */
+        .aplayer-lrc { height: 64px !important; text-shadow: 0 0 2px rgba(0,0,0,0.1); }
+        /* 隐藏掉没用的列表按钮 */
+        .aplayer-icon-menu { display: none !important; }
     </style>
 </head>
 <body>
 
-    <meting-js
-        server="netease"
-        type="song"
-        id="186016"
-        fixed="false"
-        autoplay="false"
-        loop="all"
-        order="list"
-        preload="auto"
-        list-folded="true"
-        list-max-height="500px"
-        lrc-type="1"
-        theme="#1E90FF">
-    </meting-js>
+<div id="player"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('player'),
+        theme: '#87CEEB', // 青花瓷的天青色
+        autoplay: false,  // 是否自动播放
+        loop: 'all',
+        mutex: true,
+        lrcType: 1, // 重点：启用字符串歌词模式
+        audio: [{
+            name: '青花瓷',
+            artist: '周杰伦',
+            cover: 'https://p2.music.126.net/ZSSqsEpV3U8fB4xZ50daTA==/109951165175965935.jpg',
+            
+            // ⚠️ 核心音频链接：如果未来无法播放，请替换下面这个 url 引号里的链接
+            url: 'https://music.163.com/song/media/outer/url?id=186016.mp3', 
+            
+            // 下面是完整的 LRC 歌词
+            lrc: `[00:00.00] 青花瓷 - 周杰伦
+[00:03.00] 词：方文山 曲：周杰伦
+[00:21.95]素胚勾勒出青花笔锋浓转淡
+[00:26.35]瓶身描绘的牡丹一如你初妆
+[00:30.85]冉冉檀香透过窗心事我了然
+[00:35.32]宣纸上走笔至此搁一半
+[00:39.63]釉色渲染仕女图韵味被私藏
+[00:44.02]而你嫣然的一笑如含苞待放
+[00:48.45]你的美一缕飘散
+[00:50.68]去到我去不了的地方
+[00:57.26]天青色等烟雨 而我在等你
+[01:01.66]炊烟袅袅升起 隔江千万里
+[01:06.05]在瓶底书汉隶仿前朝的飘逸
+[01:10.51]就当我为遇见你伏笔
+[01:14.93]天青色等烟雨 而我在等你
+[01:19.34]月色被打捞起 晕开了结局
+[01:23.77]如传世的青花瓷自顾自美丽
+[01:28.71]你眼带笑意
+[01:50.51]色白花青的锦鲤跃然于碗底
+[01:54.89]临摹宋体落款时却惦记着你
+[01:59.39]你隐藏在窑烧里千年的秘密
+[02:03.95]极细腻犹如绣花针落地
+[02:08.11]帘外芭蕉惹骤雨门环惹铜绿
+[02:12.57]而我路过那江南小镇惹了你
+[02:16.99]在泼墨山水画里
+[02:19.24]你从墨色深处被隐去
+[02:25.86]天青色等烟雨 而我在等你
+[02:30.22]炊烟袅袅升起 隔江千万里
+[02:34.66]在瓶底书汉隶仿前朝的飘逸
+[02:39.05]就当我为遇见你伏笔
+[02:43.51]天青色等烟雨 而我在等你
+[02:47.88]月色被打捞起 晕开了结局
+[02:52.33]如传世的青花瓷自顾自美丽
+[02:57.34]你眼带笑意
+[03:01.37]天青色等烟雨 而我在等你
+[03:05.65]炊烟袅袅升起 隔江千万里
+[03:10.08]在瓶底书汉隶仿前朝的飘逸
+[03:14.50]就当我为遇见你伏笔
+[03:18.97]天青色等烟雨 而我在等你
+[03:23.35]月色被打捞起 晕开了结局
+[03:27.77]如传世的青花瓷自顾自美丽
+[03:32.74]你眼带笑意`
+        }]
+    });
+</script>
 </body>
 </html>
